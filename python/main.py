@@ -14,7 +14,7 @@ if __name__ == '__main__':
         "https://www.googleapis.com/auth/analytics", 
         "https://www.googleapis.com/auth/analytics.edit"
     ]
-    PATH_SECRETS_FILE = "/home/kdovzhanytsia/client_secret.json"
+    PATH_SECRETS_FILE = "client_secret.json"
     REDIRECT_URL = "https://localhost:8080/callback"
 
 
