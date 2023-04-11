@@ -1,4 +1,8 @@
+import pandas as pd
 import utils
+
+#TODO try with empty description
+
 
 if __name__ == '__main__':
 
@@ -9,7 +13,6 @@ if __name__ == '__main__':
     # ENV for Acess Token
     CLIENT_ID = input("Enter CLIENT_ID: ")
     CLIENT_SECRET = input("Enter CLIENT_SECRET: ")
-
     SCOPES = [
         "https://www.googleapis.com/auth/analytics", 
         "https://www.googleapis.com/auth/analytics.edit"
@@ -17,16 +20,21 @@ if __name__ == '__main__':
     PATH_SECRETS_FILE = "client_secret.json"
     REDIRECT_URL = "https://localhost:8080/callback"
 
+    # Read the xlsx file into a pandas dataframe
+    df = pd.read_excel("input_file.xlsx", sheet_name='Tabelle1')
 
-    custom_dimention = [
-        {"displayName": "xxx10", "parameterName": "xxx10", "scope": "EVENT", "description": "blala"},
-        {"displayName": "xxx11", "parameterName": "xxx11", "scope": "EVENT", "description": "blala"},
-        {"displayName": "xxx12", "parameterName": "xxx12", "scope": "EVENT", "description": "blala"},
-        {"displayName": "xxx13", "parameterName": "xxx13", "scope": "EVENT", "description": "blala"},
-    ]
-    
+    # Create a new list of dictionaries with the desired keys
+    custom_dimention = []
+    for index, row in df.iterrows():
+        custom_dimention.append({
+            "displayName": row["displayName"] if not pd.isna(row["displayName"]) else "",
+            "parameterName": row["parameterName"] if not pd.isna(row["parameterName"]) else "",
+            "scope": row["scope"] if not pd.isna(row["scope"]) else "",
+            "description": row["description"] if not pd.isna(row["description"]) else ""
+        })
+        
     access_token = utils.get_access_token(CLIENT_ID, CLIENT_SECRET, SCOPES, PATH_SECRETS_FILE, REDIRECT_URL)
     
-    utils.generate_ga4_custom_dimenstions(
+    utils.generate_ga4_custom_dimensions(
         PROPERTY_ID, custom_dimention, access_token, API_KEY
     )

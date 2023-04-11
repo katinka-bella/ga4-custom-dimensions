@@ -1,6 +1,6 @@
 import requests
 
-def generate_ga4_custom_dimenstions(
+def generate_ga4_custom_dimensions(
     property_id: str,
     custom_dimentions: list, 
     access_token:str,
