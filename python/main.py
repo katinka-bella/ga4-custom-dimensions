@@ -1,9 +1,6 @@
 import pandas as pd
 import utils
 
-#TODO try with empty description
-
-
 if __name__ == '__main__':
 
     # ENV for Generate CDs

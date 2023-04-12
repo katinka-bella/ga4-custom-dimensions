@@ -50,6 +50,4 @@ def get_access_token(
     # create credentials object from the flow object
     creds = flow.credentials
 
-    # print the access token
-    #print(creds.token)
     return creds.token

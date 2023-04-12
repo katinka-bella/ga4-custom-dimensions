@@ -3,7 +3,7 @@
 ## 1. Create Google Cloud project
 https://console.cloud.google.com/welcome
 
-### Enable API
+### Enable API (GCP)
 ![Alt text](/pix/enableapi.png)
 - Google+ API
 - Google Analytics API
@@ -29,7 +29,7 @@ You need to update "input_file.xlsx" and list there custom dimensions that need 
 - "description" - an optional text used to identify a custom dimension;
 ![Alt text](/pix/cdcreate.png)
 
-## 4. Create custom dimention
+## 4. Create custom dimensions
 
 ### Setup environment
 ```bash
