@@ -21,6 +21,16 @@ https://console.cloud.google.com/welcome
 - CLIENT_ID - OAuth 2.0 Client ID for your Google Cloud project
 - CLIENT_SECRET - OAuth 2.0 Client secret for your Google Cloud project
 
+## 3. Create "variables.env" file
+You should create a new file in your project directory and name it "variables.env". In this file, you will store the environment variables in the format VARIABLE_NAME=value, one variable per line. You need to add the following lines with your own values to "variables.env":
+```bash
+PROPERTY_ID=your_property_id
+API_KEY=your_api_key
+CLIENT_ID=your_client_id
+CLIENT_SECRET=your_client_secret
+```
+Make sure there are no spaces around the = sign, and that each variable is defined on a separate line.
+
 ## 3. Create custom dimensions list
 You need to update "input_file.xlsx" and list there custom dimensions that need to be created. There are 4 columns in the file:
 - "displayName" - a unique name for the dimension;
@@ -31,9 +41,17 @@ You need to update "input_file.xlsx" and list there custom dimensions that need 
 
 ## 4. Create custom dimensions
 
+### Project setup
+Place in your project directory:
+- main.py
+- utils.py
+- client_secret.json
+- requirements.txt
+- input_file.xlsx
+- variables.env
+
 ### Setup environment
 ```bash
-#create new folder and place there main.py, utils.py, client_secret.json, requirements.txt and input_file.xlsx
 #create virtual environment
 python -m venv kvenv
 #activate virtual environment

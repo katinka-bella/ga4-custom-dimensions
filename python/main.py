@@ -1,15 +1,21 @@
 import pandas as pd
+import os
 import utils
+from dotenv import load_dotenv
 
 if __name__ == '__main__':
 
+    # Load environment variables from .env file
+    dotenv_path = os.path.join(os.path.dirname(__file__), 'variables.env')
+    load_dotenv(dotenv_path)
+
     # ENV for Generate CDs
-    PROPERTY_ID = input("Enter PROPERTY_ID: ")
-    API_KEY = input("Enter API_KEY: ")
+    PROPERTY_ID = os.getenv("PROPERTY_ID")
+    API_KEY = os.getenv("API_KEY")
 
     # ENV for Acess Token
-    CLIENT_ID = input("Enter CLIENT_ID: ")
-    CLIENT_SECRET = input("Enter CLIENT_SECRET: ")
+    CLIENT_ID = os.getenv("CLIENT_ID")
+    CLIENT_SECRET = os.getenv("CLIENT_SECRET")
     SCOPES = [
         "https://www.googleapis.com/auth/analytics", 
         "https://www.googleapis.com/auth/analytics.edit"

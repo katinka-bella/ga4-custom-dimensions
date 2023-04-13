@@ -2,5 +2,4 @@ venv
 kvenv
 python/__pycache__
 client_secret.json
-quick-start/README.md
-README.md
+python/variables.env
