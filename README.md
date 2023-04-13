@@ -43,12 +43,12 @@ You need to update "input_file.xlsx" and list there custom dimensions that need 
 
 ### Project setup
 Place in your project directory:
-- main.py
-- utils.py
+- src/main.py
+- src/utils.py
+- scr/variables.env
 - client_secret.json
 - requirements.txt
 - input_file.xlsx
-- variables.env
 
 ### Setup environment
 ```bash
@@ -63,7 +63,7 @@ pip install -r requirements.txt
 ### Run Python code
 
 ```bash
-python main.py
+python src/main.py
 ```
 After running the code and inputting variables values, it will open up the authorization URL in a web browser.
 ![Alt text](/pix/google_accounts.png)
