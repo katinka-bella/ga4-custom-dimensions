@@ -3,3 +3,4 @@ kvenv
 src/__pycache__
 client_secret.json
 src/variables.env
+test.py

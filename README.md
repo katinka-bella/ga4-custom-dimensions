@@ -16,7 +16,6 @@ https://console.cloud.google.com/welcome
 - Download Client secret JSON file and rename it to "client_secret.json"
 
 ## 2. Get ENV variables
-- PROPERTY_ID - GA4 property ID
 - API_KEY - API key for your Google Cloud project
 - CLIENT_ID - OAuth 2.0 Client ID for your Google Cloud project
 - CLIENT_SECRET - OAuth 2.0 Client secret for your Google Cloud project
@@ -31,13 +30,15 @@ CLIENT_SECRET=your_client_secret
 ```
 Make sure there are no spaces around the = sign, and that each variable is defined on a separate line.
 
-## 3. Create custom dimensions list
-You need to update "input_file.xlsx" and list there custom dimensions that need to be created. There are 4 columns in the file:
+## 3. Create configuration list
+1) You need to update "input_file.xlsx" (sheet "Tabelle1") and list there custom dimensions that need to be created. There are 4 columns in the sheet:
 - "displayName" - a unique name for the dimension;
 - "parameterName" - an item parameter when you choose the Item scope or an event parameter when you choose the Event scope or a user property when you choose the User scope;
 - "scope" - specifies to which data the custom dimension or metric will be applied; there are 3 possible values: "EVENT" for an event-scoped dimension, "USER" for a user-scoped dimensio and "ITEM" for an item-scoped dimension;
 - "description" - an optional text used to identify a custom dimension;
 ![Alt text](/pix/cdcreate.png)
+
+2) You need to update "input_file.xlsx" (sheet "Tabelle2") and list there GA4 property IDs for which custom dimensions listed in sheet "Tabelle1" need to be created. There is 1 column in the sheet with header "property_id"
 
 ## 4. Create custom dimensions
 

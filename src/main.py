@@ -10,8 +10,17 @@ if __name__ == '__main__':
     load_dotenv(dotenv_path)
 
     # ENV for Generate CDs
-    PROPERTY_ID = os.getenv("PROPERTY_ID")
     API_KEY = os.getenv("API_KEY")
+
+    # Read the xlsx file into a pandas dataframe
+    df1 = pd.read_excel("input_file.xlsx", sheet_name='Tabelle2')
+
+    # Create a new list of properties
+    property_id = []
+    for index, row in df1.iterrows():
+        property_id.append(
+            row["property_id"]
+       )
 
     # ENV for Acess Token
     CLIENT_ID = os.getenv("CLIENT_ID")
@@ -39,5 +48,5 @@ if __name__ == '__main__':
     access_token = utils.get_access_token(CLIENT_ID, CLIENT_SECRET, SCOPES, PATH_SECRETS_FILE, REDIRECT_URL)
     
     utils.generate_ga4_custom_dimensions(
-        PROPERTY_ID, custom_dimention, access_token, API_KEY
+        property_id, custom_dimention, access_token, API_KEY
     )

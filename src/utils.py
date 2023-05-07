@@ -1,12 +1,37 @@
 import requests
 
-def generate_ga4_custom_dimensions(
-    property_id: str,
-    custom_dimentions: list, 
-    access_token:str,
-    api_key: str):
+#def generate_ga4_custom_dimensions(
+#    property_id: str,
+#    custom_dimentions: list, 
+#   access_token:str,
+#    api_key: str):
 
-    url = f'https://analyticsadmin.googleapis.com/v1alpha/properties/{property_id}/customDimensions?key={api_key}'
+#    url = f'https://analyticsadmin.googleapis.com/v1alpha/properties/{property_id}/customDimensions?key={api_key}'
+
+#    headers = {
+#        'Authorization': f'Bearer {access_token}',
+#        'Accept': 'application/json',
+#        'Content-Type': 'application/json'
+#    }
+
+#    for item in custom_dimentions:
+#        data = {
+#            'description': item.get("description"),
+#            'displayName': item.get("displayName"),
+#            'scope': item.get("scope"),
+#            'parameterName': item.get("parameterName")
+#        }
+        
+#        response = requests.post(url, headers=headers, json=data)
+#        print(response.content)
+
+
+def generate_ga4_custom_dimensions(
+    property_ids: list,
+    custom_dimensions: list,
+    access_token: str,
+    api_key: str
+):
 
     headers = {
         'Authorization': f'Bearer {access_token}',
@@ -14,16 +39,19 @@ def generate_ga4_custom_dimensions(
         'Content-Type': 'application/json'
     }
 
-    for item in custom_dimentions:
-        data = {
-            'description': item.get("description"),
-            'displayName': item.get("displayName"),
-            'scope': item.get("scope"),
-            'parameterName': item.get("parameterName")
-        }
-        
-        response = requests.post(url, headers=headers, json=data)
-        print(response.content)
+    for property_id in property_ids:
+        url = f'https://analyticsadmin.googleapis.com/v1alpha/properties/{property_id}/customDimensions?key={api_key}'
+        print(property_id)
+        for item in custom_dimensions:
+            data = {
+                'description': item.get("description"),
+                'displayName': item.get("displayName"),
+                'scope': item.get("scope"),
+                'parameterName': item.get("parameterName")
+            }
+
+            response = requests.post(url, headers=headers, json=data)
+            print(response.content)
 
 def get_access_token(
     CLIENT_ID, CLIENT_SECRET, SCOPES, PATH_SECRETS_FILE, REDIRECT_URL
