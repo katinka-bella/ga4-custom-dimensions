@@ -1,31 +1,5 @@
 import requests
 
-#def generate_ga4_custom_dimensions(
-#    property_id: str,
-#    custom_dimentions: list, 
-#   access_token:str,
-#    api_key: str):
-
-#    url = f'https://analyticsadmin.googleapis.com/v1alpha/properties/{property_id}/customDimensions?key={api_key}'
-
-#    headers = {
-#        'Authorization': f'Bearer {access_token}',
-#        'Accept': 'application/json',
-#        'Content-Type': 'application/json'
-#    }
-
-#    for item in custom_dimentions:
-#        data = {
-#            'description': item.get("description"),
-#            'displayName': item.get("displayName"),
-#            'scope': item.get("scope"),
-#            'parameterName': item.get("parameterName")
-#        }
-        
-#        response = requests.post(url, headers=headers, json=data)
-#        print(response.content)
-
-
 def generate_ga4_custom_dimensions(
     property_ids: list,
     custom_dimensions: list,
